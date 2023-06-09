@@ -3,9 +3,7 @@ package com.spotDraft.testscript;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-
 import javax.swing.JOptionPane;
-
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
@@ -17,6 +15,10 @@ import com.spotDraft.generic.BaseClass;
 public class goodReadsAutomation extends BaseClass {
 
 	public static void main(String[] args) throws EncryptedDocumentException, IOException, InterruptedException {
+		//baseclass object creation
+		BaseClass bs=new BaseClass();
+		//open the browser
+        bs.openBrowser();
 		FileInputStream fis=new FileInputStream("./data/signInDataOne.xlsx");
 		//creating a workbook
 		Workbook wb=WorkbookFactory.create(fis);
@@ -39,11 +41,6 @@ public class goodReadsAutomation extends BaseClass {
 		Thread.sleep(3000);
 		driver.findElement(By.id("signInSubmit")).click();
 		Thread.sleep(10000);
-//		driver.findElement(By.id("ap_password")).sendKeys(password);
-//		String str = JOptionPane.showInputDialog("Enter the captcha");
-//		WebElement ele=driver.findElement(By.xpath("//input[@id='auth-captcha-guess']"));
-//		ele.sendKeys(str);
-//		driver.findElement(By.xpath("//span[@id='a-autoid-0']")).click();
 		//searching the book in search box
 		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("The Alchemist");
 		//selecting the first option
@@ -64,8 +61,6 @@ public class goodReadsAutomation extends BaseClass {
         //click on sign out
 		driver.findElement(By.xpath("//a[text()='Sign out']")).click();
 		//closing the browser
-		BaseClass bs=new BaseClass();
-        bs.openBrowser();
 		bs.closeBrowser();
 	}
 
