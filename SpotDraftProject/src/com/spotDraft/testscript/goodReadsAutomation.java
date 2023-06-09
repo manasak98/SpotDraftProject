@@ -2,10 +2,16 @@ package com.spotDraft.testscript;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+import javax.swing.JOptionPane;
+
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
 import com.spotDraft.generic.BaseClass;
 
 public class goodReadsAutomation extends BaseClass {
@@ -35,6 +41,11 @@ public class goodReadsAutomation extends BaseClass {
 		Thread.sleep(3000);
 		driver.findElement(By.id("signInSubmit")).click();
 		Thread.sleep(10000);
+//		driver.findElement(By.id("ap_password")).sendKeys(password);
+//		String str = JOptionPane.showInputDialog("Enter the captcha");
+//		WebElement ele=driver.findElement(By.xpath("//input[@id='auth-captcha-guess']"));
+//		ele.sendKeys(str);
+//		driver.findElement(By.xpath("//span[@id='a-autoid-0']")).click();
 		//searching the book in search box
 		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("The Alchemist");
 		//selecting the first option
