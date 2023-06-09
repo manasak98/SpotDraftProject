@@ -17,8 +17,6 @@ import com.spotDraft.generic.BaseClass;
 public class goodReadsAutomation extends BaseClass {
 
 	public static void main(String[] args) throws EncryptedDocumentException, IOException, InterruptedException {
-		BaseClass bs=new BaseClass();
-        bs.openBrowser();
 		FileInputStream fis=new FileInputStream("./data/signInDataOne.xlsx");
 		//creating a workbook
 		Workbook wb=WorkbookFactory.create(fis);
@@ -66,6 +64,8 @@ public class goodReadsAutomation extends BaseClass {
         //click on sign out
 		driver.findElement(By.xpath("//a[text()='Sign out']")).click();
 		//closing the browser
+		BaseClass bs=new BaseClass();
+        bs.openBrowser();
 		bs.closeBrowser();
 	}
 
